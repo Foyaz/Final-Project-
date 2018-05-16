@@ -1,0 +1,8 @@
+{
+  "name": "",
+  "description": "frontend-nanodegree-arcade-game ===============================",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "version": ""
+}
