@@ -6,6 +6,7 @@ const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
+const watch = require('gulp-watch');
 
 gulp.task('default', () =>
     gulp.src('./src/css/style.css')
@@ -47,3 +48,9 @@ gulp.task('scripts', function() {
       cb
     );
   });
+
+  gulp.task('stream', function () {
+    return watch('src/css')
+        .pipe(gulp.dest('dist'));
+});
+ 
