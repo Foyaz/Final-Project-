@@ -3,6 +3,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 const babel = require('gulp-babel');
+const concat = require('gulp-concat');
 
 gulp.task('default', () =>
     gulp.src('./src/css/style.css')
@@ -23,7 +24,13 @@ gulp.task('default', () =>
 );
 
 gulp.task('default', () =>
-    gulp.src('src/app.js')
+    gulp.src('src/main.js')
         .pipe(babel())
         .pipe(gulp.dest('dist'))
 );
+
+gulp.task('scripts', function() {
+    return gulp.src('src/js')
+      .pipe(concat('main.js'))
+      .pipe(gulp.dest('./dist/'));
+  });
