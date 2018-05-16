@@ -4,5 +4,8 @@
   "dependencies": {
     "gulp": "^3.9.1"
   },
-  "version": ""
+  "version": "",
+  "devDependencies": {
+    "gulp-autoprefixer": "^5.0.0"
+  }
 }
