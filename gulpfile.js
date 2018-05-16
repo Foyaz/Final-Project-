@@ -4,6 +4,8 @@ const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const pump = require('pump');
 
 gulp.task('default', () =>
     gulp.src('./src/css/style.css')
@@ -33,4 +35,15 @@ gulp.task('scripts', function() {
     return gulp.src('src/js')
       .pipe(concat('main.js'))
       .pipe(gulp.dest('./dist/'));
+  });
+
+
+ gulp.task('compress', function (cb) {
+    pump([
+          gulp.src('src/js'),
+          uglify(),
+          gulp.dest('dist')
+      ],
+      cb
+    );
   });
